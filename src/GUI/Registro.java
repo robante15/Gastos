@@ -55,10 +55,11 @@ public class Registro extends javax.swing.JFrame {
         lbl_registro.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
         lbl_registro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_registro.setText("Registro de Nuevo Usuario");
-        getContentPane().add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
+        getContentPane().add(lbl_registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
-        btn_aceptar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_aceptar.setBackground(new java.awt.Color(0, 0, 0));
         btn_aceptar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btn_aceptar.setForeground(new java.awt.Color(240, 240, 240));
         btn_aceptar.setText("Aceptar");
         btn_aceptar.setToolTipText("");
         btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -68,8 +69,9 @@ public class Registro extends javax.swing.JFrame {
         });
         getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 130, 60));
 
-        btn_cancelar.setBackground(new java.awt.Color(255, 255, 255));
+        btn_cancelar.setBackground(new java.awt.Color(0, 0, 0));
         btn_cancelar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        btn_cancelar.setForeground(new java.awt.Color(240, 240, 240));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +81,7 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 130, 60));
 
         lbl_nombre.setBackground(new java.awt.Color(0, 0, 0));
-        lbl_nombre.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        lbl_nombre.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_nombre.setForeground(new java.awt.Color(255, 255, 255));
         lbl_nombre.setText("Nombre");
         getContentPane().add(lbl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
@@ -88,7 +90,7 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 309, -1));
 
         lbl_edad.setBackground(new java.awt.Color(0, 0, 0));
-        lbl_edad.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        lbl_edad.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_edad.setForeground(new java.awt.Color(255, 255, 255));
         lbl_edad.setText("Edad");
         getContentPane().add(lbl_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
@@ -97,7 +99,7 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().add(txt_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 309, -1));
 
         lbl_direccion.setBackground(new java.awt.Color(0, 0, 0));
-        lbl_direccion.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        lbl_direccion.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_direccion.setForeground(new java.awt.Color(255, 255, 255));
         lbl_direccion.setText("Direccion");
         getContentPane().add(lbl_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, -1, -1));
@@ -106,7 +108,7 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().add(txt_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 309, -1));
 
         lbl_correo.setBackground(new java.awt.Color(0, 0, 0));
-        lbl_correo.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        lbl_correo.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_correo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_correo.setText("Correo");
         getContentPane().add(lbl_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
@@ -115,14 +117,14 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().add(txt_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 309, -1));
 
         lbl_numTel.setBackground(new java.awt.Color(0, 0, 0));
-        lbl_numTel.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        lbl_numTel.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_numTel.setForeground(new java.awt.Color(255, 255, 255));
         lbl_numTel.setText("Telefono");
         getContentPane().add(lbl_numTel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, -1, -1));
         getContentPane().add(spinner_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 310, -1));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/regis/fondo3.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 590));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1110, -260, 1630, 1000));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

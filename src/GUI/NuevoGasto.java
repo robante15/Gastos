@@ -51,6 +51,7 @@ public class NuevoGasto extends javax.swing.JFrame {
         lbl_nuevaCat = new javax.swing.JLabel();
         txt_nuevaCat = new javax.swing.JTextField();
         btn_agregar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Igreso de Gastos");
@@ -61,14 +62,21 @@ public class NuevoGasto extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_titulo.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_titulo.setText("Ingresar gasto");
         lbl_titulo.setToolTipText("");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 11, -1, -1));
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 120, -1));
         getContentPane().add(txt_fondos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 219, -1));
 
+        lbl_monto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_monto.setForeground(new java.awt.Color(240, 240, 240));
         lbl_monto.setText("Ingrese monto");
         getContentPane().add(lbl_monto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
+        btn_aceptar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_aceptar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        btn_aceptar.setForeground(new java.awt.Color(240, 240, 240));
         btn_aceptar.setText("Aceptar");
         btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +85,9 @@ public class NuevoGasto extends javax.swing.JFrame {
         });
         getContentPane().add(btn_aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, -1, -1));
 
+        btn_cancelar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_cancelar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        btn_cancelar.setForeground(new java.awt.Color(240, 240, 240));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,16 +96,23 @@ public class NuevoGasto extends javax.swing.JFrame {
         });
         getContentPane().add(btn_cancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, -1));
 
+        lbl_categoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_categoria.setForeground(new java.awt.Color(240, 240, 240));
         lbl_categoria.setText("Categoría");
         getContentPane().add(lbl_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
+        cbox_categoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         cbox_categoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(cbox_categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 220, -1));
         getContentPane().add(date_fechaMov, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 220, -1));
 
+        lbl_fecha.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_fecha.setForeground(new java.awt.Color(240, 240, 240));
         lbl_fecha.setText("Fecha");
         getContentPane().add(lbl_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
+        lbl_descripcion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_descripcion.setForeground(new java.awt.Color(240, 240, 240));
         lbl_descripcion.setText("Descripcion");
         getContentPane().add(lbl_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
         getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 220, -1));
@@ -107,10 +125,14 @@ public class NuevoGasto extends javax.swing.JFrame {
         });
         getContentPane().add(btn_add, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
+        lbl_nuevaCat.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_nuevaCat.setForeground(new java.awt.Color(240, 240, 240));
         lbl_nuevaCat.setText("Nueva Categoría");
         getContentPane().add(lbl_nuevaCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
         getContentPane().add(txt_nuevaCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 220, -1));
 
+        btn_agregar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        btn_agregar.setForeground(new java.awt.Color(240, 240, 240));
         btn_agregar.setText("Ok");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +140,9 @@ public class NuevoGasto extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 60, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/2.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -218,6 +243,7 @@ public class NuevoGasto extends javax.swing.JFrame {
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JComboBox<String> cbox_categoria;
     private com.toedter.calendar.JDateChooser date_fechaMov;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_categoria;
     private javax.swing.JLabel lbl_descripcion;
     private javax.swing.JLabel lbl_fecha;

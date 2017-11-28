@@ -81,6 +81,7 @@ public class Principal extends javax.swing.JFrame {
         tabla_movimientos = new javax.swing.JTable();
         lbl_tituloTabla = new javax.swing.JLabel();
         btn_gasto = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
         menu_nuevo = new javax.swing.JMenuItem();
@@ -97,15 +98,22 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_titulo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_titulo.setText("Finanzas Personales");
         getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
+        lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_usuario.setForeground(new java.awt.Color(240, 240, 240));
         lbl_usuario.setText("Bienvenido Usuario");
-        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 10, -1, -1));
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 10, -1, -1));
 
+        lbl_saldo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_saldo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_saldo.setText("Saldo disponible:");
-        getContentPane().add(lbl_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, -1, -1));
+        getContentPane().add(lbl_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, -1, -1));
 
+        btn_añadirFondos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btn_añadirFondos.setText("Añadir Fondos");
         btn_añadirFondos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,14 +122,18 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().add(btn_añadirFondos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 180, 90));
 
+        tabla_movimientos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tabla_movimientos.setModel(modeloTabla);
         jScrollPane1.setViewportView(tabla_movimientos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 1190, 380));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 1110, 340));
 
+        lbl_tituloTabla.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
+        lbl_tituloTabla.setForeground(new java.awt.Color(240, 240, 240));
         lbl_tituloTabla.setText("Movimientos del ultimo mes");
         getContentPane().add(lbl_tituloTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
+        btn_gasto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btn_gasto.setText("Nuevo Gasto");
         btn_gasto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,6 +141,9 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_gasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 170, 90));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-430, -470, 1800, 1070));
 
         menu_archivo.setText("Archivo");
 
@@ -225,6 +240,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_añadirFondos;
     private javax.swing.JButton btn_gasto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_saldo;
