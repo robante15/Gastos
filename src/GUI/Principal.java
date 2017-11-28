@@ -27,6 +27,8 @@ public class Principal extends javax.swing.JFrame {
         this.usuario = usuario;
         cargarColumnasTabla();
         cargarModeloTabla();
+        
+        this.setLocationRelativeTo(null);
     }
     
     DefaultTableModel modeloTabla = new DefaultTableModel();
@@ -91,6 +93,7 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Finanzas");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 apertura(evt);
@@ -143,7 +146,7 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(btn_gasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 170, 90));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-430, -470, 1800, 1070));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-570, -460, 1800, 1070));
 
         menu_archivo.setText("Archivo");
 

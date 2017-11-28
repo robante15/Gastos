@@ -25,6 +25,8 @@ public class NuevoGasto extends javax.swing.JFrame {
     public NuevoGasto() {
         initComponents();
         factory = new Factory();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -55,6 +57,7 @@ public class NuevoGasto extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Igreso de Gastos");
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 apertura(evt);

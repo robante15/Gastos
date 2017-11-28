@@ -25,6 +25,8 @@ public class AñadirFondos extends javax.swing.JFrame {
     public AñadirFondos() {
         initComponents();
         factory = new Factory();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -54,7 +56,9 @@ public class AñadirFondos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(430, 280));
+        setPreferredSize(new java.awt.Dimension(460, 330));
+        setResizable(false);
+        setSize(new java.awt.Dimension(450, 320));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 apertura(evt);
@@ -132,7 +136,6 @@ public class AñadirFondos extends javax.swing.JFrame {
         getContentPane().add(txt_nuevaCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 220, -1));
 
         btn_agregar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        btn_agregar.setForeground(new java.awt.Color(240, 240, 240));
         btn_agregar.setText("Ok");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,8 +144,9 @@ public class AñadirFondos extends javax.swing.JFrame {
         });
         getContentPane().add(btn_agregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 210, 60, -1));
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 480, 320));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

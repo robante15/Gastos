@@ -22,6 +22,8 @@ public class Registro extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         factory = new Factory();
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -50,6 +52,7 @@ public class Registro extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Registro");
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_registro.setFont(new java.awt.Font("Roboto", 1, 20)); // NOI18N
@@ -124,7 +127,7 @@ public class Registro extends javax.swing.JFrame {
         getContentPane().add(spinner_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 310, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/3.jpg"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1110, -260, 1630, 1000));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-1100, -250, 1630, 1000));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
