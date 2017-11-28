@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class BaseDatos {
     private static Factory factory;
-    String url = "C:\\Users\\carlo.DESKTOP-UDD03KH\\Documents\\NetBeansProjects\\Gastos\\finanzas.bd";
+    String url = "D:\\Mis Documentos\\NetBeansProjects\\Gastos\\finanzas.bd";
     Connection connect;
     PreparedStatement st = null;
     ResultSet rs = null;
@@ -74,6 +74,35 @@ public class BaseDatos {
         }
     }
     
+    public void actualizarUsuario(Usuario usuarioActual){
+        try {
+            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            
+            String nombre = usuarioActual.getNombre();
+            int edad = usuarioActual.getEdad();
+            String direccion = usuarioActual.getDireccion();
+            String correo = usuarioActual.getCorreo();
+            Double saldo = usuarioActual.getSaldo();
+            int telefono = usuarioActual.getTelefono();
+            
+            String SQLQuery = "UPDATE usuario SET nombre = '"+nombre+"', edad = '"+edad+"', direccion = '"+direccion+"', correo = '"+correo+"', saldo = '"+saldo+"', telefono = '"+telefono+"'";
+            
+            
+            st = connect.prepareStatement(SQLQuery);
+            st.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Registro actualizado correctamente");
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+     
     public void actualizarSaldo(Double saldo){
         try {
             connect = DriverManager.getConnection("jdbc:sqlite:"+url);

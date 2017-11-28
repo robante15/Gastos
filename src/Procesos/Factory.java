@@ -43,4 +43,9 @@ public class Factory {
     public NuevoGasto gastoGUI(){
         return new NuevoGasto();
     }
+    
+    public Perfil perfilGUI(Usuario usuario){
+        return new Perfil(usuario);
+    }
+    
 }

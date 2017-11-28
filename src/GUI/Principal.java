@@ -86,7 +86,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
-        menu_nuevo = new javax.swing.JMenuItem();
+        menu_perfil = new javax.swing.JMenuItem();
         menu_salir = new javax.swing.JMenuItem();
         menu_ayuda = new javax.swing.JMenu();
         menu_acercade = new javax.swing.JMenuItem();
@@ -150,13 +150,13 @@ public class Principal extends javax.swing.JFrame {
 
         menu_archivo.setText("Archivo");
 
-        menu_nuevo.setText("Nuevo usuario");
-        menu_nuevo.addActionListener(new java.awt.event.ActionListener() {
+        menu_perfil.setText("Ver Perfil");
+        menu_perfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_nuevoActionPerformed(evt);
+                menu_perfilActionPerformed(evt);
             }
         });
-        menu_archivo.add(menu_nuevo);
+        menu_archivo.add(menu_perfil);
 
         menu_salir.setText("Salir");
         menu_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -184,9 +184,10 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menu_salirActionPerformed
 
-    private void menu_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_nuevoActionPerformed
-        
-    }//GEN-LAST:event_menu_nuevoActionPerformed
+    private void menu_perfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_perfilActionPerformed
+        Perfil perfilGUI = factory.perfilGUI(usuario);
+        perfilGUI.setVisible(true);
+    }//GEN-LAST:event_menu_perfilActionPerformed
 
     private void apertura(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_apertura
         String nombreU = usuario.getNombre();
@@ -253,7 +254,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menu_acercade;
     private javax.swing.JMenu menu_archivo;
     private javax.swing.JMenu menu_ayuda;
-    private javax.swing.JMenuItem menu_nuevo;
+    private javax.swing.JMenuItem menu_perfil;
     private javax.swing.JMenuItem menu_salir;
     private javax.swing.JTable tabla_movimientos;
     // End of variables declaration//GEN-END:variables
