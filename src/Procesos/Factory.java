@@ -48,4 +48,7 @@ public class Factory {
         return new Perfil(usuario);
     }
     
+    public BusquedaAvanzada busquedaAvanzada(Usuario usuario){
+        return new BusquedaAvanzada(usuario);
+    }
 }

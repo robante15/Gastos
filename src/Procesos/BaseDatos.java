@@ -367,5 +367,73 @@ public class BaseDatos {
         }
         return listaGastos;
    }
-         
+
+   //Metodos de busqueda
+   
+   public ArrayList<Movimiento> buscarMovimiento_Descipcion(String busqueda){
+        factory = new Factory();
+        ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
+        try {
+            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            String SQLQuery = "SELECT * FROM movimientos WHERE descripcion LIKE '%"+busqueda+"%'";
+            st = connect.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                String descripcion = rs.getString("descripcion");
+                String tipoMovimiento = rs.getString("tipomovimiento");
+                String fecha = rs.getString("fecha");
+                Double monto = rs.getDouble("monto");
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                listaMovimientos.add(movimientosBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaMovimientos;
+    }
+   
+    public ArrayList<Movimiento> buscarMovimiento_TipoMov(String busqueda){
+        factory = new Factory();
+        ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
+        try {
+            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            String SQLQuery = "SELECT * FROM movimientos WHERE tipomovimiento LIKE '%"+busqueda+"%'";
+            st = connect.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                String descripcion = rs.getString("descripcion");
+                String tipoMovimiento = rs.getString("tipomovimiento");
+                String fecha = rs.getString("fecha");
+                Double monto = rs.getDouble("monto");
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                listaMovimientos.add(movimientosBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaMovimientos;
+    }
+   
 }

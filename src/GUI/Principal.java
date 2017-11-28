@@ -83,10 +83,13 @@ public class Principal extends javax.swing.JFrame {
         tabla_movimientos = new javax.swing.JTable();
         lbl_tituloTabla = new javax.swing.JLabel();
         btn_gasto = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        txt_busqueda = new javax.swing.JTextField();
+        btn_buscar = new javax.swing.JButton();
+        lbl_fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
         menu_perfil = new javax.swing.JMenuItem();
+        menu_busquedaAvanzada = new javax.swing.JMenuItem();
         menu_salir = new javax.swing.JMenuItem();
         menu_ayuda = new javax.swing.JMenu();
         menu_acercade = new javax.swing.JMenuItem();
@@ -129,7 +132,7 @@ public class Principal extends javax.swing.JFrame {
         tabla_movimientos.setModel(modeloTabla);
         jScrollPane1.setViewportView(tabla_movimientos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 1110, 340));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 1110, 340));
 
         lbl_tituloTabla.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
         lbl_tituloTabla.setForeground(new java.awt.Color(240, 240, 240));
@@ -144,9 +147,18 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_gasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 170, 90));
+        getContentPane().add(txt_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 180, 190, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-570, -460, 1800, 1070));
+        btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_buscarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 180, 80, -1));
+
+        lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
+        getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-570, -460, 1800, 1070));
 
         menu_archivo.setText("Archivo");
 
@@ -157,6 +169,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         menu_archivo.add(menu_perfil);
+
+        menu_busquedaAvanzada.setText("Busqueda Avanzada");
+        menu_busquedaAvanzada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_busquedaAvanzadaActionPerformed(evt);
+            }
+        });
+        menu_archivo.add(menu_busquedaAvanzada);
 
         menu_salir.setText("Salir");
         menu_salir.addActionListener(new java.awt.event.ActionListener() {
@@ -206,6 +226,34 @@ public class Principal extends javax.swing.JFrame {
         gasto.setVisible(true);
     }//GEN-LAST:event_btn_gastoActionPerformed
 
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
+        BaseDatos base = factory.basedatos();
+        ArrayList<Movimiento> listaMovimientos = base.buscarMovimiento_Descipcion(this.txt_busqueda.getText());
+        int numeroMovimientos = listaMovimientos.size();
+        modeloTabla.setNumRows(numeroMovimientos);
+        
+        for(int i =0;i<numeroMovimientos;i++){
+            Movimiento movimientos = listaMovimientos.get(i);
+            
+            String descripcion = movimientos.getDescripcion();
+            String tipoMov = movimientos.getTipomovimiento();
+            String fecha = movimientos.getFecha();
+            Double monto = movimientos.getMonto();
+
+            modeloTabla.setValueAt(descripcion, i, 0);
+            modeloTabla.setValueAt(tipoMov, i, 1);
+            modeloTabla.setValueAt(fecha, i, 2);
+            modeloTabla.setValueAt("$ "+monto, i, 3);
+      
+        }
+    }//GEN-LAST:event_btn_buscarActionPerformed
+
+    private void menu_busquedaAvanzadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_busquedaAvanzadaActionPerformed
+        BusquedaAvanzada busquedaGUI = factory.busquedaAvanzada(usuario);
+        busquedaGUI.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_menu_busquedaAvanzadaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -243,10 +291,11 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_añadirFondos;
+    private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_gasto;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lbl_fondo;
     private javax.swing.JLabel lbl_saldo;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JLabel lbl_tituloTabla;
@@ -254,8 +303,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menu_acercade;
     private javax.swing.JMenu menu_archivo;
     private javax.swing.JMenu menu_ayuda;
+    private javax.swing.JMenuItem menu_busquedaAvanzada;
     private javax.swing.JMenuItem menu_perfil;
     private javax.swing.JMenuItem menu_salir;
     private javax.swing.JTable tabla_movimientos;
+    private javax.swing.JTextField txt_busqueda;
     // End of variables declaration//GEN-END:variables
 }
