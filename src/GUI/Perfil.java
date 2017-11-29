@@ -25,6 +25,8 @@ public class Perfil extends javax.swing.JFrame {
         initComponents();
         this.usuario = user;
         this.btn_actualizar.setVisible(false);
+        
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -51,9 +53,12 @@ public class Perfil extends javax.swing.JFrame {
         btn_salir = new javax.swing.JButton();
         btn_edicion = new javax.swing.JToggleButton();
         btn_actualizar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Perfil de Usuario");
+        setPreferredSize(new java.awt.Dimension(400, 450));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 apertura(evt);
@@ -61,21 +66,33 @@ public class Perfil extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        lbl_nombre.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_nombre.setForeground(new java.awt.Color(240, 240, 240));
         lbl_nombre.setText("Nombre");
         getContentPane().add(lbl_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
+        lbl_edad.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_edad.setForeground(new java.awt.Color(240, 240, 240));
         lbl_edad.setText("Edad");
         getContentPane().add(lbl_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
+        lbl_direccion.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_direccion.setForeground(new java.awt.Color(240, 240, 240));
         lbl_direccion.setText("Direccion");
         getContentPane().add(lbl_direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
+        lbl_correo.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_correo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_correo.setText("Correo");
         getContentPane().add(lbl_correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
+        lbl_telefono.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_telefono.setForeground(new java.awt.Color(240, 240, 240));
         lbl_telefono.setText("Telefono");
         getContentPane().add(lbl_telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
 
+        lbl_saldo.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_saldo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_saldo.setText("Saldo");
         getContentPane().add(lbl_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
@@ -97,6 +114,8 @@ public class Perfil extends javax.swing.JFrame {
         txt_saldo.setEnabled(false);
         getContentPane().add(txt_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 220, -1));
 
+        btn_salir.setBackground(new java.awt.Color(0, 0, 0));
+        btn_salir.setForeground(new java.awt.Color(240, 240, 240));
         btn_salir.setText("Salir");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +124,8 @@ public class Perfil extends javax.swing.JFrame {
         });
         getContentPane().add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 90, -1));
 
+        btn_edicion.setBackground(new java.awt.Color(0, 0, 0));
+        btn_edicion.setForeground(new java.awt.Color(240, 240, 240));
         btn_edicion.setText("Edicion");
         btn_edicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,13 +134,18 @@ public class Perfil extends javax.swing.JFrame {
         });
         getContentPane().add(btn_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
+        btn_actualizar.setBackground(new java.awt.Color(0, 0, 0));
+        btn_actualizar.setForeground(new java.awt.Color(240, 240, 240));
         btn_actualizar.setText("Actualizar");
         btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 220, -1));
+        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -213,6 +239,7 @@ public class Perfil extends javax.swing.JFrame {
     private javax.swing.JButton btn_actualizar;
     private javax.swing.JToggleButton btn_edicion;
     private javax.swing.JButton btn_salir;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_correo;
     private javax.swing.JLabel lbl_direccion;
     private javax.swing.JLabel lbl_edad;

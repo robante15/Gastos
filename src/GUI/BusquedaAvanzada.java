@@ -36,6 +36,8 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         this.Date_hasta.setVisible(false);
         this.lbl_desde.setVisible(false);
         this.lbl_hasta.setVisible(false);
+        
+        this.setLocationRelativeTo(null);
     }
 
     DefaultTableModel modeloTabla = new DefaultTableModel();
@@ -96,10 +98,10 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         lbl_desde = new javax.swing.JLabel();
         lbl_hasta = new javax.swing.JLabel();
         btn_todo = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1225, 635));
-        setResizable(false);
+        setPreferredSize(new java.awt.Dimension(1245, 685));
         setSize(new java.awt.Dimension(1225, 635));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -111,8 +113,10 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         tabla_movimientos.setModel(modeloTabla);
         jScrollPane1.setViewportView(tabla_movimientos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, 1130, 390));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 1060, 350));
 
+        lbl_overTeibul.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_overTeibul.setForeground(new java.awt.Color(240, 240, 240));
         lbl_overTeibul.setText("Todos los movimientos");
         getContentPane().add(lbl_overTeibul, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
@@ -145,9 +149,13 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         getContentPane().add(Date_hasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, 120, -1));
         getContentPane().add(Date_desde, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 120, -1));
 
+        lbl_desde.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_desde.setForeground(new java.awt.Color(240, 240, 240));
         lbl_desde.setText("Desde");
         getContentPane().add(lbl_desde, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 90, -1, -1));
 
+        lbl_hasta.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_hasta.setForeground(new java.awt.Color(240, 240, 240));
         lbl_hasta.setText("Hasta");
         getContentPane().add(lbl_hasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 90, -1, -1));
 
@@ -158,6 +166,9 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_todo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-620, -200, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -262,6 +273,7 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
     private javax.swing.ButtonGroup btnGroup_selector;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_todo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_desde;
     private javax.swing.JLabel lbl_hasta;
