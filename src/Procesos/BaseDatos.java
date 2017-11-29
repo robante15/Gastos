@@ -28,7 +28,11 @@ import javax.swing.JOptionPane;
  */
 public class BaseDatos {
     private static Factory factory;
+<<<<<<< HEAD
     String url = "C:\\Users\\carlo.DESKTOP-UDD03KH\\Documents\\NetBeansProjects\\Gastos\\Finanzas.bd";
+=======
+    String url = "src\\LocalBD\\finanzas.bd";
+>>>>>>> 9ea125d295b365e54cf872aa167ca16cec76e4f9
     Connection connect;
     PreparedStatement st = null;
     ResultSet rs = null;
