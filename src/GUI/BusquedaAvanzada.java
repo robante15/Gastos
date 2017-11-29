@@ -7,6 +7,8 @@ package GUI;
 
 import Entidades.*;
 import Procesos.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -96,6 +98,9 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         btn_todo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1225, 635));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1225, 635));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
                 cerrado(evt);
@@ -202,8 +207,14 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
                 busqueda = "";
             }else{
                 if(rbtn_fecha.isSelected()){
+                    DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+                    String desde = df.format(this.Date_desde.getDate());;
+                    String hasta = df.format(this.Date_hasta.getDate());;
                     
-                    System.out.print("Fecha esta activo");
+                    this.cargarModeloTabla(base.obtenerMovimientosRango(desde, hasta));
+                    this.txt_busqueda.setText("");
+                    this.lbl_overTeibul.setText("Resultados con el Tipo de Movimiento \""+busqueda+"\""); 
+                    busqueda = "";
                     
                 }
             }

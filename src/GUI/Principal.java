@@ -47,7 +47,7 @@ public class Principal extends javax.swing.JFrame {
         ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosMES();
         int numeroMovimientos = listaMovimientos.size();
         modeloTabla.setNumRows(numeroMovimientos);
-        
+        Double total = 0.0;
         for(int i =0;i<numeroMovimientos;i++){
             Movimiento movimientos = listaMovimientos.get(i);
             
@@ -56,7 +56,7 @@ public class Principal extends javax.swing.JFrame {
             String fecha = movimientos.getFecha();
             Double monto = movimientos.getMonto();
 
-            
+            total = total+monto;
             
             modeloTabla.setValueAt(descripcion, i, 0);
             modeloTabla.setValueAt(tipoMov, i, 1);
@@ -64,6 +64,8 @@ public class Principal extends javax.swing.JFrame {
             modeloTabla.setValueAt("$ "+monto, i, 3);
       
         }
+        
+        this.lbl_total.setText("Total de Movimientos: $"+String.valueOf(total));
     }
     
     /**
@@ -85,6 +87,7 @@ public class Principal extends javax.swing.JFrame {
         btn_gasto = new javax.swing.JButton();
         txt_busqueda = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
+        lbl_total = new javax.swing.JLabel();
         lbl_fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
@@ -104,17 +107,17 @@ public class Principal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_titulo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_titulo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_titulo.setText("Finanzas Personales");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(240, 240, 240));
         lbl_usuario.setText("Bienvenido Usuario");
         getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 10, -1, -1));
 
-        lbl_saldo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        lbl_saldo.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_saldo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_saldo.setText("Saldo disponible:");
         getContentPane().add(lbl_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, -1, -1));
@@ -126,7 +129,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_añadirFondosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_añadirFondos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 180, 90));
+        getContentPane().add(btn_añadirFondos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 180, 90));
 
         tabla_movimientos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tabla_movimientos.setModel(modeloTabla);
@@ -134,7 +137,7 @@ public class Principal extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 1110, 340));
 
-        lbl_tituloTabla.setFont(new java.awt.Font("Roboto", 2, 14)); // NOI18N
+        lbl_tituloTabla.setFont(new java.awt.Font("Roboto", 2, 16)); // NOI18N
         lbl_tituloTabla.setForeground(new java.awt.Color(240, 240, 240));
         lbl_tituloTabla.setText("Movimientos del ultimo mes");
         getContentPane().add(lbl_tituloTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
@@ -146,7 +149,7 @@ public class Principal extends javax.swing.JFrame {
                 btn_gastoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_gasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 170, 90));
+        getContentPane().add(btn_gasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 170, 90));
         getContentPane().add(txt_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 180, 190, -1));
 
         btn_buscar.setText("Buscar");
@@ -156,6 +159,11 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 180, 80, -1));
+
+        lbl_total.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_total.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_total.setText("Total:");
+        getContentPane().add(lbl_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 560, -1, -1));
 
         lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
         getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-570, -460, 1800, 1070));
@@ -299,6 +307,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_saldo;
     private javax.swing.JLabel lbl_titulo;
     private javax.swing.JLabel lbl_tituloTabla;
+    private javax.swing.JLabel lbl_total;
     private javax.swing.JLabel lbl_usuario;
     private javax.swing.JMenuItem menu_acercade;
     private javax.swing.JMenu menu_archivo;

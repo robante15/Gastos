@@ -24,6 +24,7 @@ public class Perfil extends javax.swing.JFrame {
         factory = new Factory();
         initComponents();
         this.usuario = user;
+        this.btn_actualizar.setVisible(false);
     }
 
     /**
@@ -136,6 +137,7 @@ public class Perfil extends javax.swing.JFrame {
             this.txt_nombre.setEnabled(true);
             //this.txt_saldo.setEnabled(true);
             this.txt_telefono.setEnabled(true);
+            this.btn_actualizar.setVisible(true);
         }
         else{
             this.txt_correo.setEnabled(false);
@@ -143,6 +145,7 @@ public class Perfil extends javax.swing.JFrame {
             this.txt_edad.setEnabled(false);
             this.txt_nombre.setEnabled(false);
             this.txt_saldo.setEnabled(false);
+            this.btn_actualizar.setVisible(false);
             this.txt_telefono.setEnabled(false);
         }
     }//GEN-LAST:event_btn_edicionActionPerformed
@@ -162,7 +165,7 @@ public class Perfil extends javax.swing.JFrame {
         String nombre = this.txt_nombre.getText();
         int edad = Integer.parseInt(this.txt_edad.getText());
         String direccion = this.txt_direccion.getText();
-        String correo = this.txt_direccion.getText();
+        String correo = this.txt_correo.getText();
         Double saldo = Double.parseDouble(this.txt_saldo.getText());
         int telefono = Integer.parseInt(this.txt_telefono.getText());
         

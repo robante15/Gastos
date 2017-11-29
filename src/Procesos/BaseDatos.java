@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class BaseDatos {
     private static Factory factory;
-    String url = "D:\\Mis Documentos\\NetBeansProjects\\Gastos\\finanzas.bd";
+    String url = "C:\\Users\\roban\\Documents\\NetBeansProjects\\Gastos\\finanzas.bd";
     Connection connect;
     PreparedStatement st = null;
     ResultSet rs = null;
@@ -276,6 +276,39 @@ public class BaseDatos {
         return listaMovimientos;
     }
    
+   public ArrayList<Movimiento> obtenerMovimientosRango(String desde, String hasta){
+        factory = new Factory();
+        ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
+        try {
+            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            String SQLQuery = "SELECT * FROM movimientos WHERE fecha BETWEEN '"+desde+"' AND '"+hasta+"' ORDER BY fecha DESC";
+            st = connect.prepareStatement(SQLQuery);
+            rs = st.executeQuery();
+            
+            while(rs.next()){
+                
+                String descripcion = rs.getString("descripcion");
+                String tipoMovimiento = rs.getString("tipomovimiento");
+                String fecha = rs.getString("fecha");
+                Double monto = rs.getDouble("monto");
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                listaMovimientos.add(movimientosBD);
+            }
+            
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        finally{
+            try {
+                st.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return listaMovimientos;
+    }
+   
    public ArrayList<Movimiento> obtenerMovimientosTODOS(){
         factory = new Factory();
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
@@ -375,7 +408,7 @@ public class BaseDatos {
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
             connect = DriverManager.getConnection("jdbc:sqlite:"+url);
-            String SQLQuery = "SELECT * FROM movimientos WHERE descripcion LIKE '%"+busqueda+"%'";
+            String SQLQuery = "SELECT * FROM movimientos WHERE descripcion LIKE '%"+busqueda+"%' ORDER BY fecha DESC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
             
@@ -408,7 +441,7 @@ public class BaseDatos {
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
             connect = DriverManager.getConnection("jdbc:sqlite:"+url);
-            String SQLQuery = "SELECT * FROM movimientos WHERE tipomovimiento LIKE '%"+busqueda+"%'";
+            String SQLQuery = "SELECT * FROM movimientos WHERE tipomovimiento LIKE '%"+busqueda+"%' ORDER BY fecha DESC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
             
