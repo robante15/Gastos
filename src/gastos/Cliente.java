@@ -25,9 +25,11 @@ public class Cliente {
         BaseDatos base = factory.basedatos();
         Usuario user = base.obtenerUsuario();
 
+        Fechas fecha = new Fechas();
+        fecha.EstaSemana();
         
         
-        if(user == null){
+        /*if(user == null){
             System.out.print("El usuario es nulo");
             factory = new Factory();
             Registro regi = factory.registro();
@@ -39,7 +41,6 @@ public class Cliente {
             base.actualizarSaldo(fondos);
             Principal form = factory.principal(user);
             form.setVisible(true);
-        }
+        }*/
     }
-    
 }
