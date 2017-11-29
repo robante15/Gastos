@@ -7,6 +7,7 @@ package Procesos;
 import GUI.*;
 import Procesos.*;
 import Entidades.*;
+import java.util.Date;
 
 /**
  *
@@ -18,6 +19,10 @@ public class Factory {
         return new BaseDatos();
     }
     
+    public Fechas fechas(){
+        return new Fechas();
+    }
+    
     public Usuario usuario(String nombre, int edad, String direccion, String correo, Double saldo, int telefono){
         return new Usuario(nombre, edad, direccion, correo, saldo, telefono);
     }
@@ -25,6 +30,11 @@ public class Factory {
     public Movimiento movimiento(String descripcion, String tipomovimiento, String fecha, Double monto){
         return new Movimiento(descripcion, tipomovimiento, fecha, monto);
     }
+    
+    public RangoFecha rangoFecha(Date inicio, Date fin){
+        return new RangoFecha(inicio, fin);
+    }
+    
     
     
     /*----------------------CARGA DE LAS GUI-----------------------------*/

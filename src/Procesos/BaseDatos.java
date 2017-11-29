@@ -12,7 +12,13 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -22,7 +28,7 @@ import javax.swing.JOptionPane;
  */
 public class BaseDatos {
     private static Factory factory;
-    String url = "C:\\Users\\roban\\Documents\\NetBeansProjects\\Gastos\\finanzas.bd";
+    String url = "D:\\Mis Documentos\\NetBeansProjects\\Gastos\\finanzas.bd";
     Connection connect;
     PreparedStatement st = null;
     ResultSet rs = null;
@@ -243,12 +249,12 @@ public class BaseDatos {
        return fondos;
    }
    
-   public ArrayList<Movimiento> obtenerMovimientosMES(){
+   public ArrayList<Movimiento> obtenerMovimientosMES(String inicio, String fin){
         factory = new Factory();
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
             connect = DriverManager.getConnection("jdbc:sqlite:"+url);
-            String SQLQuery = "SELECT * FROM movimientos WHERE fecha BETWEEN '11-00-2017' AND '11-31-2017' ORDER BY fecha DESC";
+            String SQLQuery = "SELECT * FROM movimientos WHERE fecha BETWEEN '"+inicio+"' AND '"+fin+"' ORDER BY fecha DESC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
             
@@ -259,7 +265,21 @@ public class BaseDatos {
                 String fecha = rs.getString("fecha");
                 Double monto = rs.getDouble("monto");
                 
-                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                Date date = null;
+                DateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+                
+                //Es sumamente ineficiente pero lo que hace es convertir de un tipo de fecha a otro más bunito
+                try {
+                    date = format.parse(fecha);
+                    
+                } catch (ParseException ex) {
+                    Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+                String fecha2 = df.format(date);
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha2, monto);
                 listaMovimientos.add(movimientosBD);
             }
             
@@ -291,8 +311,21 @@ public class BaseDatos {
                 String tipoMovimiento = rs.getString("tipomovimiento");
                 String fecha = rs.getString("fecha");
                 Double monto = rs.getDouble("monto");
+                Date date = null;
+                DateFormat format = new SimpleDateFormat("MM-dd-yyyy");
                 
-                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                //Es sumamente ineficiente pero lo que hace es convertir de un tipo de fecha a otro más bunito
+                try {
+                    date = format.parse(fecha);
+                    
+                } catch (ParseException ex) {
+                    Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+                String fecha2 = df.format(date);
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha2, monto);
                 listaMovimientos.add(movimientosBD);
             }
             
@@ -325,7 +358,22 @@ public class BaseDatos {
                 String fecha = rs.getString("fecha");
                 Double monto = rs.getDouble("monto");
                 
-                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                Date date = null;
+                DateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+                
+                //Es sumamente ineficiente pero lo que hace es convertir de un tipo de fecha a otro más bunito
+                try {
+                    date = format.parse(fecha);
+                    
+                } catch (ParseException ex) {
+                    Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+                String fecha2 = df.format(date);
+                
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha2, monto);
                 listaMovimientos.add(movimientosBD);
             }
             
@@ -419,7 +467,21 @@ public class BaseDatos {
                 String fecha = rs.getString("fecha");
                 Double monto = rs.getDouble("monto");
                 
-                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                Date date = null;
+                DateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+                
+                //Es sumamente ineficiente pero lo que hace es convertir de un tipo de fecha a otro más bunito
+                try {
+                    date = format.parse(fecha);
+                    
+                } catch (ParseException ex) {
+                    Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+                String fecha2 = df.format(date);
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha2, monto);
                 listaMovimientos.add(movimientosBD);
             }
             
@@ -452,7 +514,21 @@ public class BaseDatos {
                 String fecha = rs.getString("fecha");
                 Double monto = rs.getDouble("monto");
                 
-                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha, monto);
+                Date date = null;
+                DateFormat format = new SimpleDateFormat("MM-dd-yyyy");
+                
+                //Es sumamente ineficiente pero lo que hace es convertir de un tipo de fecha a otro más bunito
+                try {
+                    date = format.parse(fecha);
+                    
+                } catch (ParseException ex) {
+                    Logger.getLogger(BaseDatos.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                DateFormat df = new SimpleDateFormat("dd/MMM/yyyy");
+                String fecha2 = df.format(date);
+                
+                Movimiento movimientosBD = factory.movimiento(descripcion, tipoMovimiento, fecha2, monto);
                 listaMovimientos.add(movimientosBD);
             }
             

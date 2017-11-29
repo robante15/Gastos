@@ -7,6 +7,8 @@ package GUI;
 import Entidades.*;
 import Procesos.*;
 import GUI.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -43,8 +45,12 @@ public class Principal extends javax.swing.JFrame {
     }
     
     private void cargarModeloTabla(){
+        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
         BaseDatos base = factory.basedatos();
-        ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosMES();
+        Fechas fechas = factory.fechas();
+        RangoFecha rango = fechas.EsteMes();
+        
+        ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         int numeroMovimientos = listaMovimientos.size();
         modeloTabla.setNumRows(numeroMovimientos);
         Double total = 0.0;
@@ -63,8 +69,36 @@ public class Principal extends javax.swing.JFrame {
             modeloTabla.setValueAt(fecha, i, 2);
             modeloTabla.setValueAt("$ "+monto, i, 3);
       
-        }
+        } 
+        this.lbl_total.setText("Total de Movimientos: $"+String.valueOf(total));
+    }
+    
+    private void cargarModeloTablaPreFav(ArrayList<Movimiento> listado){
+        Fechas fechas = factory.fechas();
+        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+        BaseDatos base = factory.basedatos();
+        RangoFecha rango = fechas.EsteMes();
         
+        //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
+        int numeroMovimientos = listado.size();
+        modeloTabla.setNumRows(numeroMovimientos);
+        Double total = 0.0;
+        for(int i =0;i<numeroMovimientos;i++){
+            Movimiento movimientos = listado.get(i);
+            
+            String descripcion = movimientos.getDescripcion();
+            String tipoMov = movimientos.getTipomovimiento();
+            String fecha = movimientos.getFecha();
+            Double monto = movimientos.getMonto();
+
+            total = total+monto;
+            
+            modeloTabla.setValueAt(descripcion, i, 0);
+            modeloTabla.setValueAt(tipoMov, i, 1);
+            modeloTabla.setValueAt(fecha, i, 2);
+            modeloTabla.setValueAt("$ "+monto, i, 3);
+      
+        } 
         this.lbl_total.setText("Total de Movimientos: $"+String.valueOf(total));
     }
     
@@ -77,6 +111,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bGroup_rango = new javax.swing.ButtonGroup();
         lbl_titulo = new javax.swing.JLabel();
         lbl_usuario = new javax.swing.JLabel();
         lbl_saldo = new javax.swing.JLabel();
@@ -88,6 +123,9 @@ public class Principal extends javax.swing.JFrame {
         txt_busqueda = new javax.swing.JTextField();
         btn_buscar = new javax.swing.JButton();
         lbl_total = new javax.swing.JLabel();
+        rbtn_mes = new javax.swing.JRadioButton();
+        rtbn_semana = new javax.swing.JRadioButton();
+        rbtn_dia = new javax.swing.JRadioButton();
         lbl_fondo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         menu_archivo = new javax.swing.JMenu();
@@ -164,6 +202,35 @@ public class Principal extends javax.swing.JFrame {
         lbl_total.setForeground(new java.awt.Color(255, 255, 255));
         lbl_total.setText("Total:");
         getContentPane().add(lbl_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 560, -1, -1));
+
+        bGroup_rango.add(rbtn_mes);
+        rbtn_mes.setSelected(true);
+        rbtn_mes.setText("Este mes");
+        rbtn_mes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_mesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rbtn_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, -1, -1));
+
+        bGroup_rango.add(rtbn_semana);
+        rtbn_semana.setText("Esta semana");
+        rtbn_semana.setToolTipText("");
+        rtbn_semana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rtbn_semanaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rtbn_semana, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, -1, -1));
+
+        bGroup_rango.add(rbtn_dia);
+        rbtn_dia.setText("Este día");
+        rbtn_dia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbtn_diaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rbtn_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, -1, -1));
 
         lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
         getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-570, -460, 1800, 1070));
@@ -262,6 +329,36 @@ public class Principal extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_menu_busquedaAvanzadaActionPerformed
 
+    private void rbtn_mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_mesActionPerformed
+        Fechas fechas = factory.fechas();
+        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+        BaseDatos base = factory.basedatos();
+        RangoFecha rango = fechas.EsteMes();
+        
+        //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
+        this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
+    }//GEN-LAST:event_rbtn_mesActionPerformed
+
+    private void rtbn_semanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rtbn_semanaActionPerformed
+        Fechas fechas = factory.fechas();
+        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+        BaseDatos base = factory.basedatos();
+        RangoFecha rango = fechas.EstaSemana();
+        
+        //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
+        this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
+    }//GEN-LAST:event_rtbn_semanaActionPerformed
+
+    private void rbtn_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_diaActionPerformed
+        Fechas fechas = factory.fechas();
+        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+        BaseDatos base = factory.basedatos();
+        RangoFecha rango = fechas.Ahora();
+        
+        //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
+        this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
+    }//GEN-LAST:event_rbtn_diaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -298,6 +395,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bGroup_rango;
     private javax.swing.JButton btn_añadirFondos;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_gasto;
@@ -315,6 +413,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem menu_busquedaAvanzada;
     private javax.swing.JMenuItem menu_perfil;
     private javax.swing.JMenuItem menu_salir;
+    private javax.swing.JRadioButton rbtn_dia;
+    private javax.swing.JRadioButton rbtn_mes;
+    private javax.swing.JRadioButton rtbn_semana;
     private javax.swing.JTable tabla_movimientos;
     private javax.swing.JTextField txt_busqueda;
     // End of variables declaration//GEN-END:variables
