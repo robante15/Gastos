@@ -177,7 +177,7 @@ public class Principal extends javax.swing.JFrame {
 
         lbl_tituloTabla.setFont(new java.awt.Font("Roboto", 2, 16)); // NOI18N
         lbl_tituloTabla.setForeground(new java.awt.Color(240, 240, 240));
-        lbl_tituloTabla.setText("Movimientos del ultimo mes");
+        lbl_tituloTabla.setText("Movimientos de este mes");
         getContentPane().add(lbl_tituloTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         btn_gasto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -335,8 +335,10 @@ public class Principal extends javax.swing.JFrame {
         BaseDatos base = factory.basedatos();
         RangoFecha rango = fechas.EsteMes();
         
+        this.lbl_tituloTabla.setText("Movimientos de este mes");
         //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
+        
     }//GEN-LAST:event_rbtn_mesActionPerformed
 
     private void rtbn_semanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rtbn_semanaActionPerformed
@@ -345,6 +347,7 @@ public class Principal extends javax.swing.JFrame {
         BaseDatos base = factory.basedatos();
         RangoFecha rango = fechas.EstaSemana();
         
+        this.lbl_tituloTabla.setText("Movimientos de esta semana");
         //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
     }//GEN-LAST:event_rtbn_semanaActionPerformed
@@ -355,6 +358,7 @@ public class Principal extends javax.swing.JFrame {
         BaseDatos base = factory.basedatos();
         RangoFecha rango = fechas.Ahora();
         
+        this.lbl_tituloTabla.setText("Movimientos de este día");
         //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
     }//GEN-LAST:event_rbtn_diaActionPerformed
