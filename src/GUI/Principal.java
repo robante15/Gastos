@@ -7,6 +7,7 @@ package GUI;
 import Entidades.*;
 import Procesos.*;
 import GUI.*;
+import java.awt.Color;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -87,12 +88,12 @@ public class Principal extends javax.swing.JFrame {
         Double total = 0.0;
         for(int i =0;i<numeroMovimientos;i++){
             Movimiento movimientos = listado.get(i);
-            
+            //this.tabla_movimientos.setForeground(Color.white);
             String descripcion = movimientos.getDescripcion();
             String tipoMov = movimientos.getTipomovimiento();
             String fecha = movimientos.getFecha();
             Double monto = movimientos.getMonto();
-
+            
             total = total+monto;
             
             modeloTabla.setValueAt(descripcion, i, 0);
@@ -103,6 +104,7 @@ public class Principal extends javax.swing.JFrame {
         } 
         this.lbl_total.setText("Total de Movimientos: $"+(double)Math.round(total * 100d) / 100d);
     }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -324,7 +326,7 @@ public class Principal extends javax.swing.JFrame {
             String tipoMov = movimientos.getTipomovimiento();
             String fecha = movimientos.getFecha();
             Double monto = movimientos.getMonto();
-
+            
             modeloTabla.setValueAt(descripcion, i, 0);
             modeloTabla.setValueAt(tipoMov, i, 1);
             modeloTabla.setValueAt(fecha, i, 2);
