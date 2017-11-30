@@ -141,6 +141,9 @@ public class Principal extends javax.swing.JFrame {
         setTitle("Finanzas");
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                VentanaActiva(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 apertura(evt);
             }
@@ -287,9 +290,14 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_perfilActionPerformed
 
     private void apertura(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_apertura
+        this.abridoPackman();
+    }                         
+
+    private void abridoPackman(){
         String nombreU = usuario.getNombre();
         Double saldoU = usuario.getSaldo();
         this.lbl_usuario.setText("Bienvenido "+nombreU);
+
         this.lbl_saldo.setText("Saldo: "+ def.format(saldoU));
     }//GEN-LAST:event_apertura
 
@@ -364,6 +372,26 @@ public class Principal extends javax.swing.JFrame {
         //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
     }//GEN-LAST:event_rbtn_diaActionPerformed
+
+    private void VentanaActiva(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_VentanaActiva
+        System.out.print("La ventana esta activa");
+        factory = new Factory();
+        BaseDatos base = factory.basedatos();
+        Usuario user = base.obtenerUsuario();
+        Double fondos = base.obtenerFondos();
+        user.setSaldo(fondos);
+        base.actualizarSaldo(fondos);
+        usuario = user;
+        this.abridoPackman();
+        
+        Fechas fechas = factory.fechas();
+        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
+        RangoFecha rango = fechas.EsteMes();    
+        this.lbl_tituloTabla.setText("Movimientos de este mes");
+        this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
+        
+        this.rbtn_mes.setSelected(true);
+    }//GEN-LAST:event_VentanaActiva
 
     /**
      * @param args the command line arguments
