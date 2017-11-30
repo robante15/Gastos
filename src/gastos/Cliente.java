@@ -21,6 +21,7 @@ public class Cliente {
     private static Factory factory;
     
     public static void main(String[] args) {
+        
         factory = new Factory();
         BaseDatos base = factory.basedatos();
         Usuario user = base.obtenerUsuario();

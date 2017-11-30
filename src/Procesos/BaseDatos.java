@@ -7,6 +7,7 @@ package Procesos;
 
 import Entidades.*;
 import Procesos.*;
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,23 +30,26 @@ import javax.swing.JOptionPane;
 public class BaseDatos {
     private static Factory factory;
 
-
-    String osName;
     
-            
-    String url = "src\\LocalBD\\finanzas.bd";
-
+    
+    String url = "LocalBD\\finanzas.bd";
+    //String urlLinux = new File("LocalBD/finanzas.bd").getAbsolutePath();
+    String urlLinux = "LocalBD/finanzas.bd";
+    String osName = System.getProperty("os.name").toLowerCase();
     Connection connect;
     PreparedStatement st = null;
     ResultSet rs = null;
     
+    
     public void connect(){
         try {
-            osName = System.getProperty("os.name").toLowerCase();
+            
             if(osName.equals("linux")){
-                url = "src//LocalBD//finanzas.bd";
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
             }
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             if (connect!=null) {
                 System.out.println("Conectado");
             }
@@ -67,7 +71,12 @@ public class BaseDatos {
     //Metodos de insersion a la Base de Datos
      public void registrarUsuario(Usuario usuario){
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "INSERT INTO usuario (nombre, edad, direccion, correo, telefono, saldo) VALUES (?,?,?,?,?,0)";
             st = connect.prepareStatement(SQLQuery);
             
@@ -92,7 +101,12 @@ public class BaseDatos {
     
     public void actualizarUsuario(Usuario usuarioActual){
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             
             String nombre = usuarioActual.getNombre();
             int edad = usuarioActual.getEdad();
@@ -121,7 +135,12 @@ public class BaseDatos {
      
     public void actualizarSaldo(Double saldo){
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "UPDATE usuario SET saldo="+saldo+"";
             st = connect.prepareStatement(SQLQuery);
             st.executeUpdate();
@@ -139,7 +158,12 @@ public class BaseDatos {
     
     public void addCatFondos(String catIngreso){
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "INSERT INTO tipoingreso (ingreso) VALUES (?)";
             st = connect.prepareStatement(SQLQuery);
             st.setString(1, catIngreso);
@@ -158,7 +182,12 @@ public class BaseDatos {
     
     public void addCatGastos(String catGasto){
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "INSERT INTO tipogasto (gasto) VALUES (?)";
             st = connect.prepareStatement(SQLQuery);
             st.setString(1, catGasto);
@@ -177,7 +206,12 @@ public class BaseDatos {
      
      public void ingresoMovimiento(Movimiento movimiento){
          try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "INSERT INTO movimientos (descripcion, tipomovimiento, fecha, monto) VALUES (?,?,?,?)";
             st = connect.prepareStatement(SQLQuery);
             
@@ -204,7 +238,12 @@ public class BaseDatos {
         factory = new Factory();
         Usuario perfil = null;
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM usuario";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -236,7 +275,12 @@ public class BaseDatos {
    public Double obtenerFondos(){
        Double fondos = 0.0;
        try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT monto FROM movimientos";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -263,7 +307,12 @@ public class BaseDatos {
         factory = new Factory();
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM movimientos WHERE fecha BETWEEN '"+inicio+"' AND '"+fin+"' ORDER BY fecha DESC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -310,7 +359,12 @@ public class BaseDatos {
         factory = new Factory();
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM movimientos WHERE fecha BETWEEN '"+desde+"' AND '"+hasta+"' ORDER BY fecha DESC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -356,7 +410,12 @@ public class BaseDatos {
         factory = new Factory();
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM movimientos ORDER BY fecha DESC ";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -405,7 +464,12 @@ public class BaseDatos {
        factory = new Factory();
        ArrayList<String> listaIngresos = new ArrayList<String>();
        try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM tipoingreso ORDER BY ingreso ASC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -434,7 +498,12 @@ public class BaseDatos {
        factory = new Factory();
        ArrayList<String> listaGastos = new ArrayList<String>();
        try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM tipogasto ORDER BY gasto ASC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -465,7 +534,12 @@ public class BaseDatos {
         factory = new Factory();
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM movimientos WHERE descripcion LIKE '%"+busqueda+"%' ORDER BY fecha DESC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
@@ -512,7 +586,12 @@ public class BaseDatos {
         factory = new Factory();
         ArrayList<Movimiento> listaMovimientos = new ArrayList<Movimiento>();
         try {
-            connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            if(osName.equals("linux")){
+            connect = DriverManager.getConnection("jdbc:sqlite:"+urlLinux);
+            }
+            else{
+                connect = DriverManager.getConnection("jdbc:sqlite:"+url);
+            }
             String SQLQuery = "SELECT * FROM movimientos WHERE tipomovimiento LIKE '%"+busqueda+"%' ORDER BY fecha DESC";
             st = connect.prepareStatement(SQLQuery);
             rs = st.executeQuery();
