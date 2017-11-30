@@ -60,6 +60,9 @@ public class AñadirFondos extends javax.swing.JFrame {
         setResizable(false);
         setSize(new java.awt.Dimension(450, 320));
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 apertura(evt);
             }
@@ -204,6 +207,10 @@ public class AñadirFondos extends javax.swing.JFrame {
         this.txt_nuevaCat.setVisible(false);
         this.btn_agregar.setVisible(false);
     }//GEN-LAST:event_btn_agregarActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
