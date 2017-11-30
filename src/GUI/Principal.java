@@ -8,6 +8,7 @@ import Entidades.*;
 import Procesos.*;
 import GUI.*;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +23,7 @@ public class Principal extends javax.swing.JFrame {
      */
     private static Factory factory;
     static Usuario usuario;
+    DecimalFormat def = new DecimalFormat("#.00");
     
     public Principal(Usuario usuario) {
         factory = new Factory();
@@ -70,7 +72,7 @@ public class Principal extends javax.swing.JFrame {
             modeloTabla.setValueAt("$ "+monto, i, 3);
       
         } 
-        this.lbl_total.setText("Total de Movimientos: $"+String.valueOf(total));
+        this.lbl_total.setText("Total de Movimientos: $"+(double)Math.round(total * 100d) / 100d);
     }
     
     private void cargarModeloTablaPreFav(ArrayList<Movimiento> listado){
@@ -99,7 +101,7 @@ public class Principal extends javax.swing.JFrame {
             modeloTabla.setValueAt("$ "+monto, i, 3);
       
         } 
-        this.lbl_total.setText("Total de Movimientos: $"+String.valueOf(total));
+        this.lbl_total.setText("Total de Movimientos: $"+(double)Math.round(total * 100d) / 100d);
     }
     
     /**
@@ -289,15 +291,16 @@ public class Principal extends javax.swing.JFrame {
 
     private void apertura(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_apertura
         this.abridoPackman();
-    }//GEN-LAST:event_apertura
+    }                         
 
     private void abridoPackman(){
         String nombreU = usuario.getNombre();
         Double saldoU = usuario.getSaldo();
         this.lbl_usuario.setText("Bienvenido "+nombreU);
-        this.lbl_saldo.setText("Saldo: "+saldoU);
-    }
-    
+
+        this.lbl_saldo.setText("Saldo: "+ def.format(saldoU));
+    }//GEN-LAST:event_apertura
+
     private void btn_añadirFondosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_añadirFondosActionPerformed
         AñadirFondos fondos = factory.fondos();
         fondos.setVisible(true);

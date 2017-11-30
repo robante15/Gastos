@@ -19,7 +19,7 @@ public class Movimiento {
         this.descripcion = descripcion;
         this.tipomovimiento = tipomovimiento;
         this.fecha = fecha;
-        this.monto = monto;
+        this.monto = (double)Math.round(monto * 100d) / 100d;
     }
 
     public Double getMonto() {
