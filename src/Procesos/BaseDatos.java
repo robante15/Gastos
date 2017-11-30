@@ -29,6 +29,7 @@ import javax.swing.JOptionPane;
 public class BaseDatos {
     private static Factory factory;
 
+
     String osName;
     
             

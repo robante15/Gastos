@@ -7,9 +7,14 @@ package GUI;
 
 import Entidades.*;
 import Procesos.*;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -38,6 +43,12 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         this.lbl_hasta.setVisible(false);
         
         this.setLocationRelativeTo(null);
+        
+        try {
+        this.setIconImage(ImageIO.read(new File("icon.png")));
+            } catch (IOException ex) {
+        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } 
     }
 
     DefaultTableModel modeloTabla = new DefaultTableModel();

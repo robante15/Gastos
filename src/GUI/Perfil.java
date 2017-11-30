@@ -7,6 +7,11 @@ package GUI;
 
 import Entidades.*;
 import Procesos.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 
 /**
@@ -27,6 +32,12 @@ public class Perfil extends javax.swing.JFrame {
         this.btn_actualizar.setVisible(false);
         
         this.setLocationRelativeTo(null);
+        
+        try {
+        this.setIconImage(ImageIO.read(new File("icon.png")));
+            } catch (IOException ex) {
+        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } 
     }
 
     /**

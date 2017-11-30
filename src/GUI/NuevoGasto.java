@@ -7,9 +7,14 @@ package GUI;
 
 import Entidades.*;
 import Procesos.*;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -27,6 +32,12 @@ public class NuevoGasto extends javax.swing.JFrame {
         factory = new Factory();
         
         this.setLocationRelativeTo(null);
+        
+        try {
+        this.setIconImage(ImageIO.read(new File("icon.png")));
+            } catch (IOException ex) {
+        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } 
     }
 
     /**
