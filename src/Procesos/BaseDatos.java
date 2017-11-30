@@ -29,6 +29,9 @@ import javax.swing.JOptionPane;
 public class BaseDatos {
     private static Factory factory;
 
+    String osName;
+    
+            
     String url = "src\\LocalBD\\finanzas.bd";
 
     Connection connect;
@@ -37,6 +40,10 @@ public class BaseDatos {
     
     public void connect(){
         try {
+            osName = System.getProperty("os.name").toLowerCase();
+            if(osName.equals("linux")){
+                url = "src//LocalBD//finanzas.bd";
+            }
             connect = DriverManager.getConnection("jdbc:sqlite:"+url);
             if (connect!=null) {
                 System.out.println("Conectado");
