@@ -7,9 +7,14 @@ package GUI;
 
 import Entidades.*;
 import Procesos.*;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -25,8 +30,12 @@ public class AñadirFondos extends javax.swing.JFrame {
     public AñadirFondos() {
         initComponents();
         factory = new Factory();
-        
         this.setLocationRelativeTo(null);
+        try {
+        this.setIconImage(ImageIO.read(new File("icon.png")));
+            } catch (IOException ex) {
+        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }      
     }
 
     /**
@@ -56,6 +65,7 @@ public class AñadirFondos extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Agregar Fondos");
         setPreferredSize(new java.awt.Dimension(460, 330));
         setResizable(false);
         setSize(new java.awt.Dimension(450, 320));

@@ -7,11 +7,15 @@ package GUI;
 import Entidades.*;
 import Procesos.*;
 import GUI.*;
-import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -32,9 +36,14 @@ public class Principal extends javax.swing.JFrame {
         this.usuario = usuario;
         cargarColumnasTabla();
         cargarModeloTabla();
-        
         this.setLocationRelativeTo(null);
-    }
+        
+        try {
+        this.setIconImage(ImageIO.read(new File("icon.png")));
+            } catch (IOException ex) {
+        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }  
+        }
     
     DefaultTableModel modeloTabla = new DefaultTableModel();
 

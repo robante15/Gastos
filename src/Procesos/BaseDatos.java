@@ -29,7 +29,7 @@ import javax.swing.JOptionPane;
 public class BaseDatos {
     private static Factory factory;
 
-    String url = "src\\LocalBD\\finanzas.bd";
+    String url = "LocalBD\\finanzas.bd";
 
     Connection connect;
     PreparedStatement st = null;

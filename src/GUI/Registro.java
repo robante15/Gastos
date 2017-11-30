@@ -7,6 +7,11 @@ package GUI;
 import Entidades.*;
 import Procesos.*;
 import GUI.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -24,6 +29,12 @@ public class Registro extends javax.swing.JFrame {
         factory = new Factory();
         
         this.setLocationRelativeTo(null);
+        
+        try {
+        this.setIconImage(ImageIO.read(new File("icon.png")));
+            } catch (IOException ex) {
+        Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } 
     }
 
     /**
