@@ -99,10 +99,12 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         lbl_hasta = new javax.swing.JLabel();
         btn_todo = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1245, 685));
+        setResizable(false);
         setSize(new java.awt.Dimension(1225, 635));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosed(java.awt.event.WindowEvent evt) {
@@ -111,6 +113,7 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tabla_movimientos.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         tabla_movimientos.setModel(modeloTabla);
         jScrollPane1.setViewportView(tabla_movimientos);
 
@@ -119,8 +122,9 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         lbl_overTeibul.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
         lbl_overTeibul.setForeground(new java.awt.Color(240, 240, 240));
         lbl_overTeibul.setText("Todos los movimientos");
-        getContentPane().add(lbl_overTeibul, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        getContentPane().add(lbl_overTeibul, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, -1, -1));
 
+        btn_buscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,22 +134,33 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 150, 150, -1));
 
         btnGroup_selector.add(rbtn_descripcion);
+        rbtn_descripcion.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        rbtn_descripcion.setForeground(new java.awt.Color(255, 255, 255));
         rbtn_descripcion.setSelected(true);
         rbtn_descripcion.setText("Descripcion");
-        getContentPane().add(rbtn_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        rbtn_descripcion.setOpaque(false);
+        getContentPane().add(rbtn_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
         btnGroup_selector.add(rbtn_tipoMov);
+        rbtn_tipoMov.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        rbtn_tipoMov.setForeground(new java.awt.Color(255, 255, 255));
         rbtn_tipoMov.setText("Tipo de Movimiento");
-        getContentPane().add(rbtn_tipoMov, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
+        rbtn_tipoMov.setOpaque(false);
+        getContentPane().add(rbtn_tipoMov, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, -1, -1));
 
         btnGroup_selector.add(rbtn_fecha);
+        rbtn_fecha.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        rbtn_fecha.setForeground(new java.awt.Color(255, 255, 255));
         rbtn_fecha.setText("Rango de Fechas");
+        rbtn_fecha.setOpaque(false);
         rbtn_fecha.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 RFechaSelected(evt);
             }
         });
-        getContentPane().add(rbtn_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, -1, -1));
+        getContentPane().add(rbtn_fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+
+        txt_busqueda.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         getContentPane().add(txt_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 150, 250, -1));
         getContentPane().add(Date_hasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 110, 120, -1));
         getContentPane().add(Date_desde, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 110, 120, -1));
@@ -160,21 +175,28 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
         lbl_hasta.setText("Hasta");
         getContentPane().add(lbl_hasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 90, -1, -1));
 
+        btn_todo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_todo.setText("Todo");
         btn_todo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_todoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_todo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        getContentPane().add(btn_todo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jButton1.setText("Atras");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 120, 40));
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Busqueda Avanzada");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-620, -200, -1, -1));
@@ -289,6 +311,7 @@ public class BusquedaAvanzada extends javax.swing.JFrame {
     private javax.swing.JButton btn_todo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_desde;
     private javax.swing.JLabel lbl_hasta;

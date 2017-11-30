@@ -62,7 +62,7 @@ public class Registro extends javax.swing.JFrame {
 
         btn_aceptar.setBackground(new java.awt.Color(0, 0, 0));
         btn_aceptar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btn_aceptar.setForeground(new java.awt.Color(240, 240, 240));
+        btn_aceptar.setForeground(new java.awt.Color(255, 255, 255));
         btn_aceptar.setText("Aceptar");
         btn_aceptar.setToolTipText("");
         btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +74,7 @@ public class Registro extends javax.swing.JFrame {
 
         btn_cancelar.setBackground(new java.awt.Color(0, 0, 0));
         btn_cancelar.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
-        btn_cancelar.setForeground(new java.awt.Color(240, 240, 240));
+        btn_cancelar.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

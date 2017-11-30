@@ -155,17 +155,17 @@ public class Principal extends javax.swing.JFrame {
         lbl_titulo.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
         lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_titulo.setText("Finanzas Personales");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_usuario.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_usuario.setForeground(new java.awt.Color(240, 240, 240));
         lbl_usuario.setText("Bienvenido Usuario");
-        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 10, -1, -1));
+        getContentPane().add(lbl_usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 30, -1, -1));
 
-        lbl_saldo.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        lbl_saldo.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         lbl_saldo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_saldo.setText("Saldo disponible:");
-        getContentPane().add(lbl_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 30, -1, -1));
+        getContentPane().add(lbl_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 60, -1, -1));
 
         btn_añadirFondos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btn_añadirFondos.setText("Añadir Fondos");
@@ -174,9 +174,9 @@ public class Principal extends javax.swing.JFrame {
                 btn_añadirFondosActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_añadirFondos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 180, 90));
+        getContentPane().add(btn_añadirFondos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 180, 90));
 
-        tabla_movimientos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        tabla_movimientos.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         tabla_movimientos.setModel(modeloTabla);
         jScrollPane1.setViewportView(tabla_movimientos);
 
@@ -185,7 +185,7 @@ public class Principal extends javax.swing.JFrame {
         lbl_tituloTabla.setFont(new java.awt.Font("Roboto", 2, 16)); // NOI18N
         lbl_tituloTabla.setForeground(new java.awt.Color(240, 240, 240));
         lbl_tituloTabla.setText("Movimientos de este mes");
-        getContentPane().add(lbl_tituloTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        getContentPane().add(lbl_tituloTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         btn_gasto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         btn_gasto.setText("Nuevo Gasto");
@@ -194,16 +194,19 @@ public class Principal extends javax.swing.JFrame {
                 btn_gastoActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_gasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 170, 90));
-        getContentPane().add(txt_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 180, 190, -1));
+        getContentPane().add(btn_gasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, 170, 90));
 
+        txt_busqueda.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        getContentPane().add(txt_busqueda, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 170, 190, 30));
+
+        btn_buscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btn_buscar.setText("Buscar");
         btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_buscarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 180, 80, -1));
+        getContentPane().add(btn_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 170, 80, -1));
 
         lbl_total.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_total.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,33 +214,42 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(lbl_total, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 560, -1, -1));
 
         bGroup_rango.add(rbtn_mes);
+        rbtn_mes.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        rbtn_mes.setForeground(new java.awt.Color(255, 255, 255));
         rbtn_mes.setSelected(true);
         rbtn_mes.setText("Este mes");
+        rbtn_mes.setOpaque(false);
         rbtn_mes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtn_mesActionPerformed(evt);
             }
         });
-        getContentPane().add(rbtn_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 560, -1, -1));
+        getContentPane().add(rbtn_mes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, -1));
 
         bGroup_rango.add(rtbn_semana);
+        rtbn_semana.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        rtbn_semana.setForeground(new java.awt.Color(255, 255, 255));
         rtbn_semana.setText("Esta semana");
         rtbn_semana.setToolTipText("");
+        rtbn_semana.setOpaque(false);
         rtbn_semana.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rtbn_semanaActionPerformed(evt);
             }
         });
-        getContentPane().add(rtbn_semana, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 560, -1, -1));
+        getContentPane().add(rtbn_semana, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, -1));
 
         bGroup_rango.add(rbtn_dia);
+        rbtn_dia.setFont(new java.awt.Font("Roboto", 0, 16)); // NOI18N
+        rbtn_dia.setForeground(new java.awt.Color(255, 255, 255));
         rbtn_dia.setText("Este día");
+        rbtn_dia.setOpaque(false);
         rbtn_dia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbtn_diaActionPerformed(evt);
             }
         });
-        getContentPane().add(rbtn_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 560, -1, -1));
+        getContentPane().add(rbtn_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 560, -1, -1));
 
         lbl_fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/5.jpg"))); // NOI18N
         getContentPane().add(lbl_fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-570, -460, 1800, 1070));

@@ -73,7 +73,7 @@ public class AñadirFondos extends javax.swing.JFrame {
         lbl_titulo.setForeground(new java.awt.Color(240, 240, 240));
         lbl_titulo.setText("Agregar Fondos");
         lbl_titulo.setToolTipText("");
-        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, 20));
+        getContentPane().add(lbl_titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, 130, 20));
         getContentPane().add(txt_fondos, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 219, -1));
 
         lbl_monto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -83,7 +83,7 @@ public class AñadirFondos extends javax.swing.JFrame {
 
         btn_aceptar.setBackground(new java.awt.Color(0, 0, 0));
         btn_aceptar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        btn_aceptar.setForeground(new java.awt.Color(240, 240, 240));
+        btn_aceptar.setForeground(new java.awt.Color(255, 255, 255));
         btn_aceptar.setText("Aceptar");
         btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,7 +94,7 @@ public class AñadirFondos extends javax.swing.JFrame {
 
         btn_cancelar.setBackground(new java.awt.Color(0, 0, 0));
         btn_cancelar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        btn_cancelar.setForeground(new java.awt.Color(240, 240, 240));
+        btn_cancelar.setForeground(new java.awt.Color(255, 255, 255));
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +124,8 @@ public class AñadirFondos extends javax.swing.JFrame {
         getContentPane().add(lbl_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
         getContentPane().add(txt_descripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 220, -1));
 
+        btn_add.setBackground(new java.awt.Color(0, 0, 0));
+        btn_add.setForeground(new java.awt.Color(255, 255, 255));
         btn_add.setText("+");
         btn_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,7 +140,9 @@ public class AñadirFondos extends javax.swing.JFrame {
         getContentPane().add(lbl_nuevaCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
         getContentPane().add(txt_nuevaCat, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 220, -1));
 
+        btn_agregar.setBackground(new java.awt.Color(0, 0, 0));
         btn_agregar.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        btn_agregar.setForeground(new java.awt.Color(255, 255, 255));
         btn_agregar.setText("Ok");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

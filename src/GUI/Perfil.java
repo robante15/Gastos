@@ -115,34 +115,37 @@ public class Perfil extends javax.swing.JFrame {
         getContentPane().add(txt_saldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 220, -1));
 
         btn_salir.setBackground(new java.awt.Color(0, 0, 0));
-        btn_salir.setForeground(new java.awt.Color(240, 240, 240));
+        btn_salir.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btn_salir.setForeground(new java.awt.Color(255, 255, 255));
         btn_salir.setText("Salir");
         btn_salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_salirActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 90, -1));
+        getContentPane().add(btn_salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 90, -1));
 
         btn_edicion.setBackground(new java.awt.Color(0, 0, 0));
-        btn_edicion.setForeground(new java.awt.Color(240, 240, 240));
+        btn_edicion.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btn_edicion.setForeground(new java.awt.Color(255, 255, 255));
         btn_edicion.setText("Edicion");
         btn_edicion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_edicionActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
+        getContentPane().add(btn_edicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         btn_actualizar.setBackground(new java.awt.Color(0, 0, 0));
-        btn_actualizar.setForeground(new java.awt.Color(240, 240, 240));
+        btn_actualizar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btn_actualizar.setForeground(new java.awt.Color(255, 255, 255));
         btn_actualizar.setText("Actualizar");
         btn_actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_actualizarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
+        getContentPane().add(btn_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, 210, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/1.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 430));
