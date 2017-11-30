@@ -337,6 +337,10 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_menu_busquedaAvanzadaActionPerformed
 
     private void rbtn_mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_mesActionPerformed
+        this.rbtn_mes();
+    }//GEN-LAST:event_rbtn_mesActionPerformed
+
+    private void rbtn_mes(){
         Fechas fechas = factory.fechas();
         DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
         BaseDatos base = factory.basedatos();
@@ -345,10 +349,13 @@ public class Principal extends javax.swing.JFrame {
         this.lbl_tituloTabla.setText("Movimientos de este mes");
         //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
-        
-    }//GEN-LAST:event_rbtn_mesActionPerformed
-
+    }
+    
     private void rtbn_semanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rtbn_semanaActionPerformed
+        this.rbtn_semana();
+    }//GEN-LAST:event_rtbn_semanaActionPerformed
+
+    private void rbtn_semana(){
         Fechas fechas = factory.fechas();
         DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
         BaseDatos base = factory.basedatos();
@@ -357,9 +364,13 @@ public class Principal extends javax.swing.JFrame {
         this.lbl_tituloTabla.setText("Movimientos de esta semana");
         //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
-    }//GEN-LAST:event_rtbn_semanaActionPerformed
-
+    }
+    
     private void rbtn_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtn_diaActionPerformed
+        this.rbtn_dia();
+    }//GEN-LAST:event_rbtn_diaActionPerformed
+
+    private void rbtn_dia(){
         Fechas fechas = factory.fechas();
         DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
         BaseDatos base = factory.basedatos();
@@ -368,10 +379,10 @@ public class Principal extends javax.swing.JFrame {
         this.lbl_tituloTabla.setText("Movimientos de este día");
         //ArrayList<Movimiento> listaMovimientos = base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin()));
         this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
-    }//GEN-LAST:event_rbtn_diaActionPerformed
-
+    }
+    
     private void VentanaActiva(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_VentanaActiva
-        System.out.print("La ventana esta activa");
+        //System.out.print("La ventana esta activa");
         factory = new Factory();
         BaseDatos base = factory.basedatos();
         Usuario user = base.obtenerUsuario();
@@ -379,15 +390,22 @@ public class Principal extends javax.swing.JFrame {
         user.setSaldo(fondos);
         base.actualizarSaldo(fondos);
         usuario = user;
+        
+        
+        if(this.rbtn_mes.isSelected()==true){
+            this.rbtn_mes();
+        }else{
+            if(this.rtbn_semana.isSelected()==true){
+                this.rbtn_semana();
+            }else{
+                if(this.rbtn_dia.isSelected()==true){
+                    this.rbtn_dia();
+                }
+            }
+        }
+        
         this.abridoPackman();
         
-        Fechas fechas = factory.fechas();
-        DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
-        RangoFecha rango = fechas.EsteMes();    
-        this.lbl_tituloTabla.setText("Movimientos de este mes");
-        this.cargarModeloTablaPreFav(base.obtenerMovimientosRango(df.format(rango.getInicio()),df.format(rango.getFin())));
-        
-        this.rbtn_mes.setSelected(true);
     }//GEN-LAST:event_VentanaActiva
 
     /**
